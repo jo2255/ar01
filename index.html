@@ -24,6 +24,18 @@
 <!-- rawgithack development URL -->
 <script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script>
 
+
+
+<script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+<script src="https://rawgit.com/jeromeetienne/ar.js/master/aframe/build/aframe-ar.js"></script>
+<script>
+    THREEx.ArToolkitContext.baseURL = 'https://rawgit.com/jeromeetienne/ar.js/master/three.js/'
+</script>
+
+
+
+
+
 <body style='margin : 0px; overflow: hidden;'>
    <!-- minimal loader shown until image descriptors are loaded -->
   <div class="arjs-loader">
@@ -34,6 +46,12 @@
         renderer="logarithmicDepthBuffer: true;"
         embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
 
+	    <a-scene artoolkit='sourceType: webcam;'>
+        <a-box position='0 0 0.5' material='opacity: 0.5;'></a-box>
+        <a-marker-camera preset='marker.png'></a-marker-camera>
+    </a-scene>
+	    
+	    
         <!-- use rawgithack to retrieve the correct url for nft marker (see 'trex' below) -->
         <a-nft
             type='nft' url='https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/trex-image/trex'
